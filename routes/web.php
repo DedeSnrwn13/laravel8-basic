@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/hello', function () {
+    $dataArray = [
+        'message' => 'Hello, world'
+    ];
+
+    // return $dataArray;
+    return response()->json($dataArray);
+});
