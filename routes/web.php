@@ -29,3 +29,11 @@ Route::get('/hello', function () {
     // return $dataArray;
     return response()->json($dataArray);
 });
+
+Route::get('/debug', function () {
+    $dataArray = [
+        'message' => 'Hello, world'
+    ];
+
+    dd($dataArray);
+});
