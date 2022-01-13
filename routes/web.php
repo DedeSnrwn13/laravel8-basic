@@ -56,3 +56,10 @@ Route::get('/tasks', function () use ($tasklist) {
 Route::get('/tasks/{param}', function ($param) use ($tasklist) {
     return $tasklist[$param];
 });
+
+Route::get('/tasks', function () use ($tasklist) {
+    // return request()->all();
+    $tasklist[request()->label] = request()->task;
+
+    return $tasklist;
+});
