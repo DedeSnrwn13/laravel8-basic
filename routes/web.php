@@ -17,45 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/hello', function () {
-    $dataArray = [
-        'message' => 'Hello, world'
-    ];
-
-    // return $dataArray;
-    return response()->json($dataArray);
-});
-
-Route::get('/debug', function () {
-    $dataArray = [
-        'message' => 'Hello, world'
-    ];
-
-    dd($dataArray);
-});
-
 Route::get('/tasks', [TaskController::class, 'index']);
-
 Route::get('/tasks/{param}', [TaskController::class, 'show']);
-
-// Route::get('/tasks', function () use ($tasklist) {
-//     // return request()->all();
-//     $tasklist[request()->label] = request()->task;
-
-//     return $tasklist;
-// });
-
-// Route::patch('/tasks/{key}', function ($key) use ($tasklist) {
-//     $tasklist[$key] = request()->task;
-//     return $tasklist;
-// });
-
-// Route::delete('/tasks/{key}', function ($key) use ($tasklist) {
-//     unset($tasklist[$key]);
-
-//     return $tasklist;
-// });
+Route::post('/tasks', [TaskController::class, 'store']);
+Route::patch('/tasks/{key}', [TaskController::class, 'update']);
+Route::delete('/tasks/{key}', [TaskController::class, 'destroy']);

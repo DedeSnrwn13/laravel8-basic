@@ -21,8 +21,29 @@ class TaskController extends Controller
         return $this->tasklist;
     }
 
+    public function store()
+    {
+        $this->tasklist[request()->label] = request()->task;
+
+        return $this->tasklist;
+    }
+
     public function show($param)
     {
         return $this->tasklist[$param];
+    }
+
+    public function update($key)
+    {
+        $this->tasklist[$key] = request()->task;
+
+        return $this->tasklist;
+    }
+
+    public function destroy($key)
+    {
+        unset($this->tasklist[$key]);
+
+        return $this->tasklist;
     }
 }
