@@ -40,9 +40,7 @@ Route::get('/debug', function () {
 
 Route::get('/tasks', [TaskController::class, 'index']);
 
-// Route::get('/tasks/{param}', function ($param) use ($tasklist) {
-//     return $tasklist[$param];
-// });
+Route::get('/tasks/{param}', [TaskController::class, 'show']);
 
 // Route::get('/tasks', function () use ($tasklist) {
 //     // return request()->all();
