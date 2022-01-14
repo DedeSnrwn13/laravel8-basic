@@ -63,3 +63,8 @@ Route::get('/tasks', function () use ($tasklist) {
 
     return $tasklist;
 });
+
+Route::patch('/tasks/{key}', function ($key) use ($tasklist) {
+    $tasklist[$key] = request()->task;
+    return $tasklist;
+});
