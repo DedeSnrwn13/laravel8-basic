@@ -12,18 +12,18 @@ class TaskController extends Controller
         'third' => 'Work'
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-        if (request()->search) {
-            return $this->tasklist[request()->search];
+        if ($request->search) {
+            return $this->tasklist[$request->search];
         }
 
         return $this->tasklist;
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $this->tasklist[request()->label] = request()->task;
+        $this->tasklist[$request->label] = $request->task;
 
         return $this->tasklist;
     }
@@ -33,9 +33,9 @@ class TaskController extends Controller
         return $this->tasklist[$param];
     }
 
-    public function update($key)
+    public function update(Request $request, $key)
     {
-        $this->tasklist[$key] = request()->task;
+        $this->tasklist[$key] = $request->task;
 
         return $this->tasklist;
     }
