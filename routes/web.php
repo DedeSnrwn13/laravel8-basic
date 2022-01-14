@@ -68,3 +68,9 @@ Route::patch('/tasks/{key}', function ($key) use ($tasklist) {
     $tasklist[$key] = request()->task;
     return $tasklist;
 });
+
+Route::delete('/tasks/{key}', function ($key) use ($tasklist) {
+    unset($tasklist[$key]);
+
+    return $tasklist;
+});
