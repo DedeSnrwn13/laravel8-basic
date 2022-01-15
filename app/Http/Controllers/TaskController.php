@@ -16,10 +16,15 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         if ($request->search) {
-            return $this->tasklist[$request->search];
+            $tasks = DB::table('tasks')
+                ->where('task', 'LIKE', "%$request->search%")
+                ->get();
+
+            return $tasks;
         }
 
-        return $this->tasklist;
+        $tasks = DB::table('tasks')->get();
+        return $tasks;
     }
 
     public function store(Request $request)
@@ -32,9 +37,10 @@ class TaskController extends Controller
         return 'success';
     }
 
-    public function show($param)
+    public function show($id)
     {
-        return $this->tasklist[$param];
+        $task = DB::table('tasks')->where('id', $id)->first();
+        ddd($task);
     }
 
     public function update(Request $request, $key)
