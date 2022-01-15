@@ -23,9 +23,10 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
+
         DB::table('tasks')->insert([
             'task' => $request->task,
-            'user' => $request->user,
+            'user' => $request->user
         ]);
 
         return 'success';
