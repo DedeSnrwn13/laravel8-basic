@@ -17,7 +17,10 @@ class TaskController extends Controller
         }
 
         $tasks = Task::all();
-        return $tasks;
+
+        return view('task.index', [
+            'data' => $tasks,
+        ]);
     }
 
     public function create()
