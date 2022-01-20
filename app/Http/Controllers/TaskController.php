@@ -73,6 +73,6 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return 'sukses';
+        return redirect('/tasks');
     }
 }
