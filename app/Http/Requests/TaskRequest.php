@@ -28,4 +28,12 @@ class TaskRequest extends FormRequest
             'user' => ['required']
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Input :attribute harus di isi',
+            'user.required' => 'Nama pengguna harus di isi'
+        ];
+    }
 }
