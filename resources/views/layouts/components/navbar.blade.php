@@ -5,8 +5,8 @@
                 <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
             </ul>
             <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
-                <button type="button" class="btn btn-warning">Sign-up</button>
+                <a href="#" class="btn btn-outline-light me-2">Login</a>
+                <a href="{{ url('register') }}" class="btn btn-warning">Sign-up</a>
             </div>
         </div>
     </div>
